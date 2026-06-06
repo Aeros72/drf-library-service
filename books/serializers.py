@@ -14,3 +14,10 @@ class BookSerializer(serializers.ModelSerializer):
             "inventory",
             "daily_fee",
         )
+
+    def validate_inventory(self, value):
+        if value < 0:
+            raise serializers.ValidationError(
+                "Inventory cannot be negative."
+            )
+        return value

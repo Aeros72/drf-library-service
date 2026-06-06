@@ -12,9 +12,9 @@ class Book(models.Model):
         max_length=4,
         choices=CoverChoices.choices,
     )
-    inventory = models.PositiveIntegerField()
+    inventory = models.PositiveIntegerField(default=0)
     daily_fee = models.DecimalField(
-        max_digits=6,
+        max_digits=8,
         decimal_places=2
     )
 
